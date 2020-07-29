@@ -121,7 +121,7 @@ class DoublyLinkedList {
             output += currentNode.data + ' ';
             currentNode = currentNode.getNextNode();
 
-        }
+        };
 
         output += '<tail>';
         console.log(output);
