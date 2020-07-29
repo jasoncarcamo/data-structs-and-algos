@@ -1,5 +1,3 @@
-const Queues = require("./Queues");
-
 const Queue = require("./Queues");
 
 const boundedQueue = new Queue(4);
