@@ -1,5 +1,6 @@
 const Node = require("./Node");
 
+// Fundamental to other data structures
 class LinkedList {
     constructor(data){
         this.head = null;

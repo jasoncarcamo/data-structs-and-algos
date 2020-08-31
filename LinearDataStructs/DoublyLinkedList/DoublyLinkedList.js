@@ -10,6 +10,7 @@ class DoublyLinkedList {
         const newHead = new Node(data);
         const currentHead = this.head;
 
+        // if there is a head then we must set previous and next nodes
         if(currentHead){
             currentHead.setPreviousNode(newHead);
             newHead.setNextNode(currentHead);
