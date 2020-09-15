@@ -1,8 +1,10 @@
 const LinkedList = require("../LinkedList/LinkedList");
 
 class Stack {
-    constructor(){
+    constructor(maxSize = Infinity){
         this.stack = new LinkedList();
+        this.max = maxSize;
+        this.size = 0;
     };
 
     push(data){

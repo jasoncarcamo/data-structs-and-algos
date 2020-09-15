@@ -10,11 +10,12 @@ class LinkedList {
         const newHead = new Node(data);
         let currentHead = this.head;
 
+        if(currentHead){
+            newHead.setNextNode(currentHead);
+        };
+
         this.head = newHead;
 
-        if(currentHead){
-            this.head.setNextNode(currentHead);
-        };
     }
 
     addToTail(data){
