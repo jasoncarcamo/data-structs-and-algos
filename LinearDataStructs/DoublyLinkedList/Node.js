@@ -13,14 +13,10 @@ class Node {
     setPreviousNode(data){
 
         if((data instanceof Node) || data === null){
-            
-            this.previous = data;
-            
+            this.previous = data; 
         } else{
             throw new Error("data must be of class Node");
-        }
-
-        
+        };  
     };
 
     getNextNode(){
@@ -30,13 +26,11 @@ class Node {
 
     setNextNode(data){
 
-        if((data instanceof Node) || data === null){
-            
+        if((data instanceof Node) || data === null){ 
             this.next = data;
-            
         } else{
             throw new Error("data must be of class Node");
-        }
+        };
     };
 };
 
