@@ -1,4 +1,4 @@
-const LinkedList = require("../LinkedList/LinkedList");
+const LinkedList = require("../LinearDataStructs/LinkedList/LinkedList");
 
 class HashMap{
     constructor(size = 0){
