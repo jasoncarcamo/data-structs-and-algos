@@ -8,125 +8,121 @@ class DoublyLinkedList {
 
     addToHead(data){
         const newHead = new Node(data);
-        const currentHead = this.head;
+        const head = this.head;
 
-        // if there is a head then we must set previous and next nodes
-        if(currentHead){
-            currentHead.setPreviousNode(newHead);
-            newHead.setNextNode(currentHead);
+        if(head){
+            head.setPreviousNode(newHead);
+            newHead.setNextNode(head);
         };
 
-        // head now equals a whole new head 
         this.head = newHead;
 
-        // then finally, if there is no tail, then tail equals head
         if(!this.tail){
-            this.tail = newHead;
+            this.tail = this.head;
         };
-
-    };
+    }
 
     addToTail(data){
         const newTail = new Node(data);
-        const currentTail = this.tail;
+        const tail = this.tail;
 
-        if(currentTail){
-            newTail.setPreviousNode(currentTail);
-            currentTail.setNextNode(newTail);
+        if(tail){
+            tail.setNextNode(newTail);
+            newTail.setPreviousNode(tail);
         };
 
         this.tail = newTail;
 
         if(!this.head){
-            this.head = newTail
+            this.head = this.tail;
         };
-    };
+    }
 
     removeHead(){
-        const removeHead = this.head;
+        const headToRemove = this.head;
 
-        if(!removeHead){
-            return;
+        if(!headToRemove){
+            return null;
         };
 
-        this.head = removeHead.getNextNode();
+        this.head = headToRemove.getNextNode();
 
         if(this.head){
             this.head.setPreviousNode(null);
         };
 
-        if(removeHead === this.tail){
-            this.removetail();
+        if(headToRemove === this.tail){
+            this.removeTail();
         };
 
-        return removeHead.data;
-    };
+        return headToRemove.data;
+    }
 
     removeTail(){
-        const removedTail = this.tail;
+        const tailToRemove =this.tail;
 
-        if(!removedTail){
-            return;
+        if(!tailToRemove){
+            return null;
         };
 
-        this.tail = removedTail.getPreviousNode();
+        this.tail = tailToRemove.getPreviousNode();
 
         if(this.tail){
             this.tail.setNextNode(null);
         };
 
-        if(removedTail === this.head){
+        if(tailToRemove === this.head){
             this.removeHead();
         };
 
-        return removedTail.data;
-    };
+        return tailToRemove.data;
+    }
 
     removeByData(data){
-        let nodeToRemove;
         let currentNode = this.head;
+        let nodeToRemove;
 
-        while(currentNode !== null){
+        while(currentNode.getNextNode()){
             if(currentNode.data === data){
                 nodeToRemove = currentNode;
+
                 break;
             };
+
             currentNode = currentNode.getNextNode();
         };
 
         if(!nodeToRemove){
             return null;
-        };
-
-        if(nodeToRemove === this.head){
+        } else if(nodeToRemove === this.head){
             this.removeHead();
         } else if(nodeToRemove === this.tail){
             this.removeTail();
         } else{
             const nextNode = nodeToRemove.getNextNode();
-            const previousNode = nodeToRemove.getPreviousNode();
+            const prevNode = nodeToRemove.getPreviousNode();
 
-            nextNode.setPreviousNode(previousNode);
-            previousNode.setNextNode(nextNode);
+            nextNode.setPreviousNode(prevNode);
+            prevNode.setNextNode(nextNode);
         };
 
         return nodeToRemove;
-    };
+    }
 
-    printList(){
+    printList() {
         let currentNode = this.head;
         let output = '<head> ';
-        
+
         while (currentNode !== null) {
-        
-            output += currentNode.data + ' ';
-            currentNode = currentNode.getNextNode();
+
+          output += currentNode.data + ' ';
+          currentNode = currentNode.getNextNode();
 
         };
-
+        
         output += '<tail>';
         console.log(output);
-    };
+      }
 };
 
 module.exports = DoublyLinkedList;

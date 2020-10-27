@@ -5,33 +5,29 @@ class Node {
         this.next = null;
     }
 
+    setPreviousNode(data){
+        if(data instanceof Node || data === null){
+            this.previous = data;
+        } else{
+            throw new Error("Data must be of class Node");
+        };
+    }
+
     getPreviousNode(){
-        
         return this.previous;
     }
 
-    setPreviousNode(data){
-
-        if((data instanceof Node) || data === null){
-            this.previous = data; 
-        } else{
-            throw new Error("data must be of class Node");
-        };  
-    };
-
-    getNextNode(){
-
-        return this.next;
-    };
-
     setNextNode(data){
-
-        if((data instanceof Node) || data === null){ 
+        if(data instanceof Node || data === null){
             this.next = data;
         } else{
-            throw new Error("data must be of class Node");
+            throw new Error("Data must be of class Node");
         };
-    };
+    }
+
+    getNextNode(){
+        return this.next;
+    }
 };
 
 module.exports = Node;
