@@ -6,15 +6,14 @@ class Node {
 
     setNextNode(data){
 
-        if(!(data instanceof Node)){
-            throw new Error("Data must be of Node type")
+        if(data instanceof Node || data === null){
+            this.next = data;
+        } else{
+            throw new Error("Data must be of class Node");
         };
-
-        this.next = data;
     };
 
     getNextNode(){
-
         return this.next;
     }
 };

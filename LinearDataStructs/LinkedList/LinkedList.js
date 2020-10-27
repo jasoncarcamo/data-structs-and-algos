@@ -8,14 +8,13 @@ class LinkedList {
 
     addToHead(data){
         const newHead = new Node(data);
-        let currentHead = this.head;
+        const head = this.head;
 
-        if(currentHead){
-            newHead.setNextNode(currentHead);
+        if(head){
+            newHead.setNextNode(head);
         };
 
         this.head = newHead;
-
     }
 
     addToTail(data){
@@ -25,26 +24,53 @@ class LinkedList {
         if(!tail){
             this.head = newTail;
         } else{
+
             while(tail.getNextNode()){
                 tail = tail.getNextNode();
             };
 
             tail.setNextNode(newTail);
-        };
-    };
+        }
+    }
 
     removeHead(){
-        const removedHead = this.head;
+        const headToRemove = this.head;
 
-        if(!removedHead){
-            return;
-        };
+        if(!headToRemove){
+            return null;
+        } else{
 
-        this.head = removedHead.getNextNode();
+            this.head = headToRemove.getNextNode();
 
-        return removedHead.data;
-    };
+            return headToRemove.data;
+        }
+    }
 
+    removeTail(){
+        let tailToRemove = this.head;
+
+        if(!tailToRemove){
+            return null;
+        } else{
+            let prevNode;
+
+            if(!tailToRemove.getNextNode()){
+                this.head = null;
+            } else{
+                while(tailToRemove.getNextNode()){
+                    prevNode = tailToRemove;
+                    tailToRemove = tailToRemove.getNextNode();
+                };
+            }
+
+            if(prevNode){
+                prevNode.setNextNode(null);
+            };
+
+            return tailToRemove.data;
+        }
+    }
+    
     printList() {
         let currentNode = this.head;
         let output = '<head> ';
