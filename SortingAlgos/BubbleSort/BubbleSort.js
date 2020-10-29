@@ -1,3 +1,4 @@
+//Big O (n^2) - red zone
 const BubbleSort = arr => {
     let swapping = true;
 
