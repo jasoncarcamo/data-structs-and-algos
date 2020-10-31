@@ -1,3 +1,5 @@
+// file used to test LinkedList class
+
 const LinkedList = require('./LinkedList');
 
 const seasons = new LinkedList();
