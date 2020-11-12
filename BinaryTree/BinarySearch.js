@@ -14,9 +14,7 @@ const BinarySearch = (array, target) => {
             left = indexToCheck + 1;
         } else {
             right = indexToCheck;
-        };
-
-        
+        }; 
     };
 
     return null;
