@@ -25,7 +25,6 @@ class TreeNode{
     }
 
     depthFirstTraversal(){
-        console.log(this.data);
 
         this.children.forEach( child => child.depthFirstTraversal());
     }
@@ -35,8 +34,6 @@ class TreeNode{
 
         while( queue.length > 0){
             const current = queue.shift();
-
-            console.log(current.data);
 
             queue = queue.concat(current.children);
         };
