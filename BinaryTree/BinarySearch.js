@@ -6,8 +6,6 @@ const BinarySearch = (array, target) => {
         const indexToCheck = Math.floor((left + right) / 2);
         const checking = array[indexToCheck];
 
-        console.log(indexToCheck);
-
         if(checking === target){
             return indexToCheck;
         } else if(checking < target){
