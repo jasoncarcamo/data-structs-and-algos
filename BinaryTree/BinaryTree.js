@@ -3,7 +3,7 @@ class BinaryTree{
         this.value = value;
         this.depth = depth;
         this.left = null;
-        this.right = nul;
+        this.right = null;
     };
 
     insert(value){
